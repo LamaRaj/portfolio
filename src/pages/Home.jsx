@@ -105,9 +105,9 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-xl leading-8 text-slate-400 max-w-2xl mx-auto"
+            className="mt-6 text-xl leading-8 text-slate-400 max-w-3xl mx-auto"
           >
-            Senior React developer by day, Himalayan adventurer by heart. Explore my journey across two very different but equally challenging worlds.
+            Software Developer, Himalayan adventurer and explorer. Discover my journey across two distinct yet equally challenging worlds.
           </motion.p>
         </div>
 
