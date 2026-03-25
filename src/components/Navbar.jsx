@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Terminal, Mountain } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 
 const Navbar = ({ onOpenContact }) => {
   const [isOpen, setIsOpen] = useState(false);

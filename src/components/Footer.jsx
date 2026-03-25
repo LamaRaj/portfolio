@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Heart, ExternalLink, Github } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [

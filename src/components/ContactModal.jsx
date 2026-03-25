@@ -99,7 +99,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                     <CheckCircle2 className="w-8 h-8 text-green-500" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-slate-400">Thanks for reaching out. I'll get back to you soon.</p>
+                  <p className="text-slate-400">Thanks for reaching out. I&apos;ll get back to you soon.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">

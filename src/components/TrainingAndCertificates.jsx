@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Trophy, Layout, Database, Code2 } from 'lucide-react';
+import { Trophy, Database, Code2 } from 'lucide-react';
 
 const training = [
   {

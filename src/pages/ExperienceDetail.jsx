@@ -226,7 +226,7 @@ const ExperienceDetail = () => {
               {title}
             </h1>
             <p className="text-2xl text-slate-300 mb-8 font-medium italic">
-              "{subtitle}"
+              &quot;{subtitle}&quot;
             </p>
             <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg">
               {description}
@@ -256,7 +256,7 @@ const ExperienceDetail = () => {
             {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/5 to-transparent hidden sm:block" />
 
-            {details.map((item, idx) => {
+            {details.map((item) => {
               const ItemIcon = iconMap[item.icon] || Briefcase;
               
               return (
