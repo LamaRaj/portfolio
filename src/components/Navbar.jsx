@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Terminal, Mountain } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ onOpenContact }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -26,11 +26,11 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass py-4 shadow-xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="p-2 bg-indigo-500 rounded-lg group-hover:rotate-12 transition-transform">
+          <div className="p-2 bg-emerald-500 rounded-lg group-hover:rotate-12 transition-transform">
             <Terminal className="w-5 h-5 text-white" />
           </div>
           <span className="text-xl font-outfit font-bold tracking-tight">
-            Portfolio<span className="text-indigo-500">.</span>
+            Portfolio<span className="text-emerald-500">.</span>
           </span>
         </Link>
 
@@ -40,12 +40,15 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-semibold tracking-wide hover:text-indigo-400 transition-colors ${location.pathname === link.path ? 'text-indigo-500' : 'text-slate-300'}`}
+              className={`text-sm font-semibold tracking-wide hover:text-emerald-400 transition-colors ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
             >
               {link.name}
             </Link>
           ))}
-          <button className="px-6 py-2 bg-white text-slate-950 rounded-full text-sm font-bold hover:bg-indigo-50 transition-colors shadow-lg shadow-white/5">
+          <button 
+            onClick={onOpenContact}
+            className="px-6 py-2 bg-white text-slate-950 rounded-full text-sm font-bold hover:bg-emerald-50 transition-colors shadow-lg shadow-white/5"
+          >
             Contact Me
           </button>
         </div>
@@ -68,12 +71,15 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={`text-lg font-semibold ${location.pathname === link.path ? 'text-indigo-500' : 'text-slate-300'}`}
+              className={`text-lg font-semibold ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
             >
               {link.name}
             </Link>
           ))}
-          <button className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold mt-4">
+          <button 
+            onClick={() => { setIsOpen(false); onOpenContact(); }}
+            className="w-full py-3 bg-emerald-600 text-white rounded-xl font-bold mt-4"
+          >
             Contact Me
           </button>
         </motion.div>
