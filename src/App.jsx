@@ -3,13 +3,18 @@ import Home from './pages/Home';
 import ExperienceDetail from './pages/ExperienceDetail';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ContactModal from './components/ContactModal';
 import { AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <Router>
-      <div className="min-h-screen flex flex-col selection:bg-indigo-500/40">
-        <Navbar />
+      <div className="min-h-screen flex flex-col selection:bg-emerald-500/40">
+        <Navbar onOpenContact={() => setIsContactOpen(true)} />
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         <main className="flex-grow">
           <AnimatePresence mode="wait">
             <Routes>
