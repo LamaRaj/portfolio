@@ -4,21 +4,32 @@ import { Trophy, Database, Code2 } from 'lucide-react';
 const training = [
   {
     title: "Intermediate SQL",
-    description: "Built a solid understanding of intermediate SQL concepts through hands-on learning on DataCamp, including joins, subqueries, window functions, and data manipulation techniques.",
+    description: [
+      "Built a solid understanding of intermediate SQL concepts on DataCamp.",
+      "Mastered joins, subqueries, window functions, and data manipulation."
+    ],
     icon: Database,
     tag: "DataCamp",
     date: "Nov 2022"
   },
   {
     title: "Hackathon I",
-    description: "Participated in Khudkila – Nov 2022 at Hetauda School of Management and Social Sciences and designed a UI/UX prototype in Figma for a Food Waste Management System, leading our team to victory.",
+    description: [
+      "Participated in Khudkila at Hetauda School of Management.",
+      "Designed a UI/UX prototype in Figma for a Food Waste Management System.",
+      "Led the team to victory as the overall winner."
+    ],
     icon: Trophy,
     tag: "Winner!",
     date: "Nov 2022"
   },
   {
     title: "Hackathon II",
-    description: "Participated in BIC Hackathon - Dec 2024 at Boston International College and designed database and deployed front-end for a Food Waste Management System.",
+    description: [
+      "Participated in BIC Hackathon at Boston International College.",
+      "Designed the database and deployed front-end for a Food Waste Management System.",
+      "Secured a position as a finalist."
+    ],
     icon: Code2,
     tag: "Finalist!",
     date: "Dec 2024"
@@ -58,9 +69,14 @@ const TrainingAndCertificates = () => {
                 {item.title}
               </h3>
               
-              <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                {item.description}
-              </p>
+              <ul className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow space-y-3 list-none">
+                {item.description.map((point, i) => (
+                  <li key={i} className="flex gap-2.5">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-teal-500 flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="border-t border-white/5 pt-6 mt-auto">
                 <div className="flex items-center gap-2 text-slate-500 font-bold uppercase tracking-widest text-[10px]">

@@ -1,17 +1,53 @@
 import { motion } from 'framer-motion';
-import { Github, Database, Layout } from 'lucide-react';
+import { Github, Database, Layout, Terminal } from 'lucide-react';
 
 const projects = [
   {
+    title: "POS Application",
+    description: [
+      "Developed using Express.js, TypeScript, and Drizzle ORM.",
+      "Implemented secure user authentication and real-time GraphQL subscriptions.",
+      "Designed event-driven serverless workflows with Kafka and Fission."
+    ],
+    tech: ["Express.js", "TypeScript", "GraphQL", "Drizzle ORM", "Kafka"],
+    icon: Terminal
+  },
+  {
+    title: "Content Management System",
+    description: [
+      "Refactored existing codebase to improve performance and accuracy.",
+      "Designed and developed robust backend APIs utilizing MVC architecture."
+    ],
+    tech: ["Laravel", "AdminLTE", "REST API", "MVC"],
+    icon: Database
+  },
+  {
+    title: "ERP Desktop Application",
+    description: [
+      "Collaborated closely with team members to develop backend APIs.",
+      "Developed desktop application pages with integrated features."
+    ],
+    tech: ["Flutter", "Laravel", "REST API"],
+    icon: Layout
+  },
+  {
     title: "Tour Manager",
-    description: "Developed and designed database and created a desktop application using Java Swing. Implemented features like booking, sorting, and role-based access control.",
+    description: [
+      "Developed and designed a relational database.",
+      "Created a robust desktop application using Java Swing.",
+      "Implemented booking, sorting, and role-based access control."
+    ],
     tech: ["Java Swing", "MySQL", "Database Design"],
     link: "https://github.com/LamaRaj/GuideAndTourist.git",
     icon: Layout
   },
   {
     title: "Trek-Mate",
-    description: "Designed and implemented RESTful APIs to support frontend integration, including basic authentication, email verification, and core CRUD operations. Managed database interactions with MySQL.",
+    description: [
+      "Designed and implemented RESTful APIs to support frontend integration.",
+      "Integrated basic authentication and email verification.",
+      "Managed database interactions with MySQL and core CRUD operations."
+    ],
     tech: ["REST API", "Basic Auth", "MySQL", "CRUD Operations"],
     link: "https://github.com/LamaRaj/TrekMate.git",
     icon: Database
@@ -42,23 +78,30 @@ const ProjectWork = () => {
               <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
                 <project.icon className="w-6 h-6" />
               </div>
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-white/5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+              {project.link && (
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              )}
             </div>
 
             <h3 className="text-2xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">
               {project.title}
             </h3>
             
-            <p className="text-slate-400 leading-relaxed mb-6">
-              {project.description}
-            </p>
+            <ul className="text-slate-400 leading-relaxed mb-6 space-y-2 list-none">
+              {project.description.map((point, i) => (
+                <li key={i} className="flex gap-3 text-sm md:text-base">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t, i) => (

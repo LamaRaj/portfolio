@@ -1,77 +1,14 @@
 import { motion } from 'framer-motion';
-import ExperienceCard from '../components/ExperienceCard';
-import { Terminal, Mountain } from 'lucide-react';
 import ProjectWork from '../components/ProjectWork';
 import TrainingAndCertificates from '../components/TrainingAndCertificates';
+import Skills from '../components/Skills';
+import ExperienceTimeline from '../components/ExperienceTimeline';
+import EducationTimeline from '../components/EducationTimeline';
+import Contact from '../components/Contact';
 
-/**
- * ASSET IMPORTS
- */
-import ap1 from '../assets/AnnapurnaCircuit/IMG_3865.JPG';
-import ap2 from '../assets/AnnapurnaCircuit/IMG_3872.JPG';
-import ap3 from '../assets/AnnapurnaCircuit/IMG_8400.JPG';
-import ap4 from '../assets/AnnapurnaCircuit/IMG_8711.JPG';
-import ap5 from '../assets/AnnapurnaCircuit/IMG_8713.JPG';
-import ap6 from '../assets/AnnapurnaCircuit/IMG_8714.JPG';
-
-
-// Gosaikunda
-import gk1 from '../assets/GosaiKunda/20211018_030921110_iOS.jpg';
-import gk2 from '../assets/GosaiKunda/20211018_032348205_iOS.jpg';
-import gk3 from '../assets/GosaiKunda/20211018_061955866_iOS.jpg';
-import gk4 from '../assets/GosaiKunda/20211018_072116665_iOS.jpg';
-
-// Kori
-import kr1 from '../assets/Kori/IMG_0271.JPG';
-import kr2 from '../assets/Kori/IMG_0441.JPG';
-import kr3 from '../assets/Kori/IMG_0496.JPG';
-import kr4 from '../assets/Kori/IMG_0498.JPG';
-
-// Langtang
-import lt1 from '../assets/Langtang/20221015_102133145_iOS.jpg';
-import lt2 from '../assets/Langtang/IMG_5520.jpg';
-import lt3 from '../assets/Langtang/IMG_0666.jpg';
-import lt4 from '../assets/Langtang/IMG_5523.jpg';
-
-// Mardi
-import md1 from '../assets/Mardi/20201209_043004469_iOS.jpg';
-import md2 from '../assets/Mardi/20201210_005105373_iOS.jpg';
-import md3 from '../assets/Mardi/IMG_1553.JPG';
-import md4 from '../assets/Mardi/IMG_1560.JPG';
-import md5 from '../assets/Mardi/IMG_1388.JPG';
-
-// Panch Pokhari
-import pp1 from '../assets/PanchPokhari/IMG_0473.jpg';
-import pp2 from '../assets/PanchPokhari/IMG_0487.jpg';
-import pp3 from '../assets/PanchPokhari/IMG_0513.jpg';
-import pp4 from '../assets/PanchPokhari/IMG_0519.jpg';
-import pp5 from '../assets/PanchPokhari/IMG_0633.jpg';
+import profileImg from '../assets/1735539174006.jpg';
 
 const Home = () => {
-  const experiences = [
-    {
-      id: 'it',
-      title: 'IT Experience',
-      description: 'Backend Developer specializing in high-performance architectures, event-driven systems, and scalable web solutions.',
-      icon: Terminal,
-      tag: 'Development',
-      link: '/experience/it',
-      skills: ['React', 'TypeScript', 'Node.js', 'GraphQL', 'MySQL', 'Laravel', 'Java Swing', 'Git'],
-      accent: 'emerald', 
-      images: [] 
-    },
-    {
-      id: 'trekking',
-      title: 'Trekking Experience',
-      description: 'A personal journey across the high Himalayas, focused on mental resilience, endurance, and discovering life lessons on the trail.',
-      icon: Mountain,
-      tag: 'Adventure',
-      link: '/experience/trekking',
-      accent: 'teal', // New property for theme colors
-      images: [ap1, ap2, ap3, ap4, ap5, ap6, gk1, gk2, gk3, gk4, kr1, kr2, kr3, kr4, lt1, lt2, lt3, lt4, md1, md2, md3, md4, md5, pp1, pp2, pp3, pp4, pp5] // Added your uploaded photos
-    }
-  ];
-
   return (
     <div className="relative isolate pt-14 pb-20 px-6 sm:pt-24 lg:pt-32">
       {/* Nature-inspired background gradients */}
@@ -89,50 +26,89 @@ const Home = () => {
       </div>
 
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-24">
+        <div className="text-center mb-24 flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8 relative"
+          >
+            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-emerald-500/20 relative z-10 shadow-2xl">
+              <img 
+                src={profileImg} 
+                alt="Raj Lama" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full" />
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl font-outfit font-bold tracking-tight text-white sm:text-7xl mb-6 leading-[1.1]"
           >
-            Digital Craft & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-300">
-              Mountain Peaks
+            Raj Lama<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-300 text-3xl sm:text-5xl mt-2 block">
             </span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 text-xl leading-8 text-slate-400 max-w-3xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 text-lg sm:text-xl leading-8 text-slate-400 max-w-4xl mx-auto px-4"
           >
-            Software Developer, Himalayan adventurer and explorer. Discover my journey across two distinct yet equally challenging worlds.
+            Software developer with 2+ years of experience building clean and scalable applications.<br className="hidden md:block" />
+            Specialized in Express, TypeScript, REST API & GraphQL.<br className="hidden md:block" />
+            Based in Hetauda, Nepal.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <ExperienceCard {...exp} />
-            </motion.div>
-          ))}
+        {/* Skills Section */}
+        <div id="skills" className="scroll-mt-28">
+          <Skills />
+        </div>
+
+        {/* Experience & Education Section */}
+        <div id="experience" className="mt-32 max-w-5xl mx-auto border-t border-white/5 pt-10 scroll-mt-28">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Experience</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full mx-auto mb-4" />
+            <p className="text-slate-400">My professional and academic journey.</p>
+          </div>
+
+          <div className="space-y-20">
+            {/* Professional Experience */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-8 text-emerald-400 border-b border-white/10 pb-3 inline-block">
+                Professional Experience
+              </h3>
+              <ExperienceTimeline />
+            </div>
+
+            {/* Education */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-8 text-emerald-400 border-b border-white/10 pb-3 inline-block">
+                Education
+              </h3>
+              <EducationTimeline />
+            </div>
+          </div>
         </div>
 
         {/* Detailed Project Work */}
-        <div className="mt-32 max-w-5xl mx-auto border-t border-white/5 pt-10">
+        <div id="projects" className="mt-32 max-w-5xl mx-auto border-t border-white/5 pt-10 scroll-mt-28">
           <ProjectWork />
         </div>
 
         {/* Training & Certifications */}
         <div className="mt-16 max-w-7xl mx-auto border-t border-white/5 pt-10">
           <TrainingAndCertificates />
+        </div>
+
+        {/* Contact Section */}
+        <div id="contact" className="mt-32 max-w-5xl mx-auto border-t border-white/5 pt-10 scroll-mt-28 pb-20">
+          <Contact />
         </div>
       </div>
     </div>

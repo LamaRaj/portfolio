@@ -1,48 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Terminal, Mountain, Briefcase, Calendar, GraduationCap, ChevronRight, Image as ImageIcon } from 'lucide-react';
-import SmartImage from '../components/SmartImage';
-
-// Import assets
-// Annapurna Circuit
-import ac1 from '../assets/AnnapurnaCircuit/IMG_3865.JPG';
-import ac2 from '../assets/AnnapurnaCircuit/IMG_3872.JPG';
-import ac3 from '../assets/AnnapurnaCircuit/IMG_8400.JPG';
-import ac4 from '../assets/AnnapurnaCircuit/IMG_8711.JPG';
-import ac5 from '../assets/AnnapurnaCircuit/IMG_8713.JPG';
-import ac6 from '../assets/AnnapurnaCircuit/IMG_8714.JPG';
-
-// Gosaikunda
-import gk1 from '../assets/GosaiKunda/20211018_030921110_iOS.jpg';
-import gk2 from '../assets/GosaiKunda/20211018_032348205_iOS.jpg';
-import gk3 from '../assets/GosaiKunda/20211018_061955866_iOS.jpg';
-import gk4 from '../assets/GosaiKunda/20211018_072116665_iOS.jpg';
-
-// Kori
-import kr1 from '../assets/Kori/IMG_0271.JPG';
-import kr2 from '../assets/Kori/IMG_0441.JPG';
-import kr3 from '../assets/Kori/IMG_0496.JPG';
-import kr4 from '../assets/Kori/IMG_0498.JPG';
-
-// Langtang
-import lt1 from '../assets/Langtang/20221015_102133145_iOS.jpg';
-import lt2 from '../assets/Langtang/IMG_5520.jpg';
-import lt3 from '../assets/Langtang/IMG_0666.jpg';
-import lt4 from '../assets/Langtang/IMG_5523.jpg';
-
-// Mardi
-import md1 from '../assets/Mardi/20201209_043004469_iOS.jpg';
-import md2 from '../assets/Mardi/20201210_005105373_iOS.jpg';
-import md3 from '../assets/Mardi/IMG_1553.JPG';
-import md4 from '../assets/Mardi/IMG_1560.JPG';
-import md5 from '../assets/Mardi/IMG_1388.JPG';
-
-// Panch Pokhari
-import pp1 from '../assets/PanchPokhari/IMG_0473.jpg';
-import pp2 from '../assets/PanchPokhari/IMG_0487.jpg';
-import pp3 from '../assets/PanchPokhari/IMG_0513.jpg';
-import pp4 from '../assets/PanchPokhari/IMG_0519.jpg';
-import pp5 from '../assets/PanchPokhari/IMG_0633.jpg';
+import { ArrowLeft, Terminal, Briefcase, Calendar, GraduationCap } from 'lucide-react';
 
 const experienceData = {
   it: {
@@ -111,70 +69,11 @@ const experienceData = {
       }
     ],
     skills: ['Node.js', 'Express.js', 'PHP', 'REST APIs', 'MySQL', 'Laravel','Docker', 'Git', 'PostgreSQL']
-  },
-  trekking: {
-    title: 'Trekking Experience',
-    subtitle: 'A journey of self-discovery through the high Himalayas.',
-    icon: Mountain,
-    color: 'teal',
-    description: 'Beyond the physical challenge, trekking for me is about mental clarity, resilience, and a deep connection with nature. Each trail has taught me endurance and the beauty of simplicity.',
-    details: [
-      {
-        id: 1,
-        title: 'Mardi Himal Trek',
-        date: '2024, 2019',
-        description: 'A spiritual ascent to the clouds. Reached the High Camp (3580m) and View Point (4200m), witnessing the Machhapuchhre in its full glory.',
-        icon: Mountain,
-        images: [md1, md2, md3, md4, md5]
-      },
-      {
-        id: 2,
-        title: 'Kori Trek',
-        date: '2023',
-        description: 'Exploring the pristine pastures of Kori Danda. A journey through dense rhododendron forests and off-beaten paths with panoramic mountain views.',
-        icon: Mountain,
-        images: [kr1, kr2, kr3, kr4]
-      },
-      {
-        id: 3,
-        title: 'Annapurna Circuit Trek',
-        date: '2022',
-        description: 'Completed one of the worlds most iconic circuits, crossing the Thorong La Pass (5416m) and testing my endurance across diverse terrains.',
-        icon: Mountain,
-        images: [ac1, ac2, ac3, ac4, ac5, ac6]
-      },
-      {
-        id: 4,
-        title: 'Panch Pokhari Trek',
-        date: '2022',
-        description: 'A pilgrimage to the five holy lakes. Navigating through remote villages and alpine meadows in the Sindhupalchowk region.',
-        icon: Mountain,
-        images: [pp1, pp2, pp3, pp4, pp5]
-      },
-      {
-        id: 5,
-        title: 'Langtang Valley Trek',
-        date: '2021',
-        description: 'Witnessing the resilience of Kyanjin Gompa and the breathtaking valley of glaciers while climbing Kyanjin Ri for a 360-degree view.',
-        icon: Mountain,
-        images: [lt1, lt2, lt3, lt4]
-      },
-      {
-        id: 6,
-        title: 'Gosaikunda Trek',
-        date: '2020',
-        description: 'A steep climb to the sacred alpine lake (4380m). Experiencing the silence of the mountains and the thin, crisp air of the high altitude.',
-        icon: Mountain,
-        images: [gk1, gk2, gk3, gk4]
-      }
-    ],
-    skills: ['High-Altitude Endurance', 'Navigation & Orienteering', 'Minimalist Living', 'Mountain Photography', 'Mental Resilience', 'Sustainability']
   }
 };
 
 const iconMap = {
   Terminal,
-  Mountain,
   Briefcase,
   GraduationCap
 };
@@ -333,30 +232,7 @@ const ExperienceDetail = () => {
                     </div>
                   )}
 
-                  {/* Trekking Image Gallery */}
-                  {item.images && item.images.length > 0 && (
-                    <div className="mt-8 space-y-4">
-                      <div className="flex items-center gap-2 text-teal-400 text-sm font-bold uppercase tracking-widest">
-                        <ImageIcon className="w-4 h-4" />
-                        Destination Gallery
-                      </div>
-                      <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x">
-                        {item.images.map((img, i) => (
-                          <motion.div 
-                            key={i}
-                            whileHover={{ scale: 1.05 }}
-                            className="flex-shrink-0 w-64 h-40 rounded-xl overflow-hidden border border-white/10 snap-start shadow-xl shadow-black/40 bg-slate-900"
-                          >
-                            <SmartImage 
-                              src={img} 
-                              alt={`Gallery ${i}`} 
-                              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                            />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+
                 </div>
               </div>
             );})}

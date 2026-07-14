@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from './pages/Home';
 import ExperienceDetail from './pages/ExperienceDetail';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
 import ContactModal from './components/ContactModal';
 import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
@@ -25,7 +25,6 @@ function App() {
             </Routes>
           </AnimatePresence>
         </main>
-        <Footer />
       </div>
     </Router>
   );
