@@ -4,13 +4,23 @@ import { GraduationCap, Calendar } from "lucide-react";
 const educationData = [
   {
     id: 1,
-    institution: "Hetauda School of Management",
+    institution: "Hetauda School of Management and Social Sciences",
     location: "Hetauda, Nepal",
     degree: "Bachelor of Computer Application (BCA)",
     date: "2020 - 2025",
     details: [
       "Graduated with a strong foundation in software engineering, database management, and programming.",
       "Completed multiple academic projects focusing on web development and backend architecture."
+    ]
+  },
+  {
+    id: 2,
+    institution: "Hetauda School of Management",
+    location: "Hetauda, Nepal",
+    degree: "+2 Management",
+    date: "2017 - 2019",
+    details: [
+      "Graduated with a strong foundation in management."
     ]
   }
 ];
