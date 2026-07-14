@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 
 const Navbar = ({ onOpenContact }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,39 +18,63 @@ const Navbar = ({ onOpenContact }) => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'IT Experience', path: '/experience/it' },
-    { name: 'Trekking', path: '/experience/trekking' },
+    { name: 'Skills', path: '#skills'},
+    { name: 'Experience', path: '#experience' },
+    { name: 'Projects', path: '#projects' },
+    { name: 'Contact', path: '#contact' }
   ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass py-4 shadow-xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="p-2 bg-emerald-500 rounded-lg group-hover:rotate-12 transition-transform">
-            <Terminal className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-xl font-outfit font-bold tracking-tight">
-            Portfolio<span className="text-emerald-500">.</span>
-          </span>
-        </Link>
+        <div className="flex-1">
+          <Link to="/" className="text-xl font-outfit font-bold tracking-tight hover:text-emerald-400 transition-colors">
+              Raj Lama
+          </Link>
+        </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Center Menu */}
+        <div className="hidden md:flex items-center justify-center gap-8 flex-1">
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-semibold tracking-wide hover:text-emerald-400 transition-colors ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
-            >
-              {link.name}
-            </Link>
+            link.path === '/' ? (
+              <button
+                key={link.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-sm font-semibold tracking-wide hover:text-emerald-400 transition-colors text-slate-300"
+              >
+                {link.name}
+              </button>
+            ) : link.path.startsWith('#') ? (
+              <a
+                key={link.path}
+                href={link.path}
+                className="text-sm font-semibold tracking-wide hover:text-emerald-400 transition-colors text-slate-300"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-semibold tracking-wide hover:text-emerald-400 transition-colors ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
+              >
+                {link.name}
+              </Link>
+            )
           ))}
-          <button 
-            onClick={onOpenContact}
-            className="px-6 py-2 bg-white text-slate-950 rounded-full text-sm font-bold hover:bg-emerald-50 transition-colors shadow-lg shadow-white/5"
+        </div>
+
+        {/* Right - GitHub Button */}
+        <div className="hidden md:flex justify-end flex-1">
+          <a 
+            href="https://github.com/LamaRaj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-6 py-2 bg-white text-slate-950 rounded-full text-sm font-bold hover:bg-emerald-50 transition-colors shadow-lg shadow-white/5"
           >
-            Contact Me
-          </button>
+            <Github className="w-4 h-4" />
+            GitHub
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -67,21 +91,44 @@ const Navbar = ({ onOpenContact }) => {
           className="md:hidden glass absolute top-full left-0 right-0 p-6 flex flex-col gap-4 border-t border-white/10"
         >
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className={`text-lg font-semibold ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
-            >
-              {link.name}
-            </Link>
+            link.path === '/' ? (
+              <button
+                key={link.path}
+                onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="text-lg font-semibold text-left text-slate-300 hover:text-emerald-400"
+              >
+                {link.name}
+              </button>
+            ) : link.path.startsWith('#') ? (
+              <a
+                key={link.path}
+                href={link.path}
+                onClick={() => setIsOpen(false)}
+                className="text-lg font-semibold text-slate-300"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-semibold ${location.pathname === link.path ? 'text-emerald-500' : 'text-slate-300'}`}
+              >
+                {link.name}
+              </Link>
+            )
           ))}
-          <button 
-            onClick={() => { setIsOpen(false); onOpenContact(); }}
-            className="w-full py-3 bg-emerald-600 text-white rounded-xl font-bold mt-4"
+          
+          <a 
+            href="https://github.com/LamaRaj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex justify-center items-center gap-2 py-3 bg-white text-slate-950 rounded-xl font-bold mt-4 hover:bg-emerald-50 transition-colors"
           >
-            Contact Me
-          </button>
+            <Github className="w-5 h-5" />
+            GitHub
+          </a>
         </motion.div>
       )}
     </nav>
